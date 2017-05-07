@@ -15,7 +15,8 @@ function loadXMLDoc() {
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
            if (xmlhttp.status == 200) {
-               document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+               handleData(xmlhttp.responseText);
+               //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
            }
            else if (xmlhttp.status == 400) {
               alert('There was an error 400');
@@ -32,7 +33,28 @@ function loadXMLDoc() {
 
     //https://spreadsheets.google.com/feeds/list/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/1/public/basic?alt=json-in-script&callback=JSON_CALLBACK
 }
+
+
+function handleData(data) {
+    var rows = [];
+    var cells = data.feed.entry;
+
+    for (var i = 0; i < cells.length; i++){
+        var rowObj = {};
+        rowObj.timestamp = cells[i].title.$t;
+        var rowCols = cells[i].content.$t.split(',');
+        for (var j = 0; j < rowCols.length; j++){
+            var keyVal = rowCols[j].split(':');
+            rowObj[keyVal[0].trim()] = keyVal[1].trim();
+        }
+        rows.push(rowObj);
+    }
+
+    document.getElementById("myDiv").innerHTML = JSON.stringify(rows);
+}
+
 //window.loadXMLDoc = loadXMLDoc;
+
 
 window.onload = loadXMLDoc;
 </script>
