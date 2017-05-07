@@ -73,26 +73,26 @@ window.onload = () => {
     loadXMLDoc();
     var iframe = document.getElementById("theForm");
     console.log(window.innerWidth)
-    //iframe.width = window.innerWidth;
-    //iframe.height = window.innerHeight;
+    iframe.width = window.innerWidth;
+    iframe.height = window.innerHeight;
     //iframe.onload = iframeLoaded;
 }
 
 
-
-function iframeLoaded() {
-      var iFrameID = document.getElementById('theForm');
-      if(iFrameID) {
-            // here you can make the height, I delete it first, then I make it again
-            iFrameID.width = window.innerWidth;
-            iFrameID.height = "";
-            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
-      }   
-  }
+//onload="iframeLoaded()"
+// function iframeLoaded() {
+//       var iFrameID = document.getElementById('theForm');
+//       if(iFrameID) {
+//             // here you can make the height, I delete it first, then I make it again
+//             iFrameID.width = window.innerWidth;
+//             iFrameID.height = "";
+//             iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+//       }   
+//   }
 
 </script>
 <div id="myDiv"></div>
 
-<iframe id="theForm" onload="iframeLoaded()" src="https://docs.google.com/forms/d/e/1FAIpQLSd55AHvbdwG03SGqonhR-8qv2MnNqK00lLwDFJK3-u_rwAPCQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<iframe id="theForm"  src="https://docs.google.com/forms/d/e/1FAIpQLSd55AHvbdwG03SGqonhR-8qv2MnNqK00lLwDFJK3-u_rwAPCQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
   </body>
 </html>
