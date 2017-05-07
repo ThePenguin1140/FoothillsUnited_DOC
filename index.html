@@ -26,10 +26,14 @@ function loadXMLDoc() {
         }
     };
 
-    xmlhttp.open("GET", "https://docs.google.com/spreadsheets/d/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/edit?usp=sharing", true);
+    xmlhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/1/public/basic?alt=json-in-script&callback=JSON_CALLBACK", true);
+     //"https://docs.google.com/spreadsheets/d/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/pubhtml", true);//"https://docs.google.com/spreadsheets/d/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/edit?usp=sharing", true);
     xmlhttp.send();
+
+    //https://spreadsheets.google.com/feeds/list/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/1/public/basic?alt=json-in-script&callback=JSON_CALLBACK
 }
 //window.loadXMLDoc = loadXMLDoc;
+
 window.onload = loadXMLDoc;
 </script>
 <div id="myDiv"></div>
