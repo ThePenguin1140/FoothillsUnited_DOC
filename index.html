@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Google Sheets example</title>
-    <meta charset='utf-8' />
-  </head>
-  <body>
-    <p>Google Sheets example</p>
+    <meta charset='utf-8'/>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="index.css"></link>
+</head>
+<body>
+<div class="ui container">
+    <div class="ui middle aligned centered grid attached segment" id="headerImage">
+        <div class="middle aligned column" id="headerText">
+            <h1 class="ui centered">
+                Welcome to Foothills United Day of Caring!
+            </h1>
+        </div>
+    </div>
+    <div class="ui attached segment">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+            make
+            a type specimen book. It has survived not only five centuries, but also the leap into electronic
+            typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing
+            Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+            versions
+            of Lorem Ipsum.</p>
+    </div>
 
 
-   <script type="text/javascript">
-function loadXMLDoc() {
-    var xmlhttp = new XMLHttpRequest();
+    <div class="ui attached segment">
+        <div class="ui items">
+            <div class="item">
+                <div class="ui small circular image">
+                    <img src="person-placeholder.jpg" alt="Hi">
+                </div>
+                <div class="content">
+                    <div class="header">Need Help?</div>
+                    <div class="meta">
+                        <span>Phone</span>
+                        <span>Email</span>
+                    </div>
+                    <div class="description">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's
+                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                            scrambled it to make
+                            a type specimen book.</p>
+                    </div>
+                    <div class="extra">
+                        Additional Details
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div id=>
 
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-           if (xmlhttp.status == 200) {
-               document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-           }
-           else if (xmlhttp.status == 400) {
-              alert('There was an error 400');
-           }
-           else {
-               alert('something else other than 200 was returned');
-           }
-        }
-    };
-
-    xmlhttp.open("GET", "https://docs.google.com/spreadsheets/d/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/edit?usp=sharing", true);
-    xmlhttp.send();
-}
-//window.loadXMLDoc = loadXMLDoc;
-window.onload = loadXMLDoc;
-</script>
-<div id="myDiv"></div>
-  </body>
+    <div class="ui attached segment">
+        <p>FORMS</p>
+    </div>
+</div>
+</body>
 </html>

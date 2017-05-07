@@ -1,0 +1,13 @@
+#headerImage {
+    background-image: url("gsucares-v2.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    background-position: center;
+}
+
+#headerText {
+    color: white;
+    background: rgba(0, 0, 0, 0.8)
+}
