@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Sheets example</title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <p>Google Sheets example</p>
+
+
+   <script type="text/javascript">
+function loadXMLDoc() {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+           if (xmlhttp.status == 200) {
+               document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+           }
+           else if (xmlhttp.status == 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    };
+
+    xmlhttp.open("GET", "https://spreadsheets.google.com/tq?key=1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI", true);
+    xmlhttp.send();
+}
+window.loadXMLDoc = loadXMLDoc;
+//window.onload = loadXMLDoc;
+</script>
+<div id="myDiv"></div>
+  </body>
+</html>
