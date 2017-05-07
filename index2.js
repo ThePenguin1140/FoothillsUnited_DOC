@@ -41,7 +41,8 @@ function handleData(data) {
     }
     console.log(rowObj);
     
-    document.getElementById("myDiv").innerHTML = JSON.stringify(rowObj);
+    document.getElementById("summary").innerHTML = "<p>" + rowObj.t1 + "</p>" +
+            "<p>" + rowObj.t2 + "</p>" + "<p> " + rowObj.t3 + "</p>";
 }
 
 //window.loadXMLDoc = loadXMLDoc;
