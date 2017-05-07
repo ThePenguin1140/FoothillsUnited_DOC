@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google Sheets example</title>
+    <title>Google Sheets test</title>
     <meta charset='utf-8' />
+    	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
   </head>
+
   <body>
-    <p>Google Sheets example</p>
+    <p>Google Sheets test</p>
 
 
    <script type="text/javascript">
+
+    
+
 function loadXMLDoc() {
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
            if (xmlhttp.status == 200) {
-               handleData(xmlhttp.responseText);
+               handleData(JSON.parse(xmlhttp.responseText));
                //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
            }
            else if (xmlhttp.status == 400) {
@@ -27,7 +39,7 @@ function loadXMLDoc() {
         }
     };
 
-    xmlhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/1/public/basic?alt=json-in-script&callback=JSON_CALLBACK", true);
+    xmlhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/1/public/basic?alt=json", true);
      //"https://docs.google.com/spreadsheets/d/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/pubhtml", true);//"https://docs.google.com/spreadsheets/d/1HvdRsBKvkkU1nYuKez0SoqdTXrZjSd3L83JLgcFMASI/edit?usp=sharing", true);
     xmlhttp.send();
 
@@ -35,8 +47,9 @@ function loadXMLDoc() {
 }
 
 
-function handleData(data) {
+function handleData(data) {    
     var rows = [];
+    console.log(data.feed);
     var cells = data.feed.entry;
 
     for (var i = 0; i < cells.length; i++){
@@ -49,15 +62,37 @@ function handleData(data) {
         }
         rows.push(rowObj);
     }
-
+    
     document.getElementById("myDiv").innerHTML = JSON.stringify(rows);
 }
 
 //window.loadXMLDoc = loadXMLDoc;
 
 
-window.onload = loadXMLDoc;
+window.onload = () => {
+    loadXMLDoc();
+    var iframe = document.getElementById("theForm");
+    console.log(window.innerWidth)
+    //iframe.width = window.innerWidth;
+    //iframe.height = window.innerHeight;
+    //iframe.onload = iframeLoaded;
+}
+
+
+
+function iframeLoaded() {
+      var iFrameID = document.getElementById('theForm');
+      if(iFrameID) {
+            // here you can make the height, I delete it first, then I make it again
+            iFrameID.width = window.innerWidth;
+            iFrameID.height = "";
+            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+      }   
+  }
+
 </script>
 <div id="myDiv"></div>
+
+<iframe id="theForm" onload="iframeLoaded()" src="https://docs.google.com/forms/d/e/1FAIpQLSd55AHvbdwG03SGqonhR-8qv2MnNqK00lLwDFJK3-u_rwAPCQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
   </body>
 </html>
