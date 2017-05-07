@@ -55,7 +55,7 @@ function handleData(data) {
 window.onload = () => {
     loadXMLDoc();
     var iframe = document.getElementById("theForm");
-    console.log(window.innerWidth)
+    console.log(window.innerWidth);
     iframe.width = window.innerWidth - 250;
     iframe.height = window.innerHeight;
     //iframe.onload = iframeLoaded;
