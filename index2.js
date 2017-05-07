@@ -46,12 +46,3 @@ function handleData(data) {
 }
 
 //window.loadXMLDoc = loadXMLDoc;
-
-
-window.onload = () => {
-    loadXMLDoc();
-    var iframe = document.getElementById("theForm");
-    console.log(window.innerWidth);
-    iframe.width = window.innerWidth;
-    iframe.height = window.innerHeight; 
-}
